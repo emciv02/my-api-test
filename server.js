@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3005;
 
 app.use(cors());
 app.use(express.json());
@@ -32,6 +32,10 @@ app.post("/login", (req, res) => {
   }
 
   res.json({ message: "Login successful", user });
+});
+
+app.post("/homepage", (req, res) => {
+  return res.status(401).json({ message: "Pagina inicial" });
 });
 
 app.get("/users", (req, res) => {
